@@ -12,7 +12,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - docker build -t myapp .
+      - docker build -t my-app .
       - docker tag my-app:latest 766884914534.dkr.ecr.ca-central-1.amazonaws.com/my-app:latest
       - docker push 766884914534.dkr.ecr.ca-central-1.amazonaws.com/my-app:latest      
   post_build:
