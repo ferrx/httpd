@@ -5,9 +5,6 @@ phases:
     commands:
       - echo Ensure the latest awscli is installed...
       - sudo pip install --upgrade awscli
-      - echo Install AWS ECS CLI
-      - sudo curl -o /usr/local/bin/ecs-cli https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest
-      - sudo chmod +x /usr/local/bin/ecs-cli
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
