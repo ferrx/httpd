@@ -19,4 +19,4 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Restart the ECS Task to get the newly created image
-      - aws ecs stop-task --cluster "my-app-cluster" --task "my-app:1"
+      - aws ecs stop-task --cluster "my-app-cluster" --task "arn:aws:ecs:ca-central-1:766884914534:task-definition/my-app:1"
