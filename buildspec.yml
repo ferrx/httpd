@@ -18,3 +18,5 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - echo Restart the ECS Task to get the newly created image
+      - aws ecs stop-task my-app-cluster my-app:1
