@@ -20,5 +20,5 @@ phases:
       - echo Build completed on `date`
       - echo Restart the ECS Task to get the newly created image
       - aws ecs update-service --cluster "app-cluster" --service "s1" --desired-count 0
-      - sleep 10s
+      - sleep 30s
       - aws ecs update-service --cluster "app-cluster" --service "s1" --desired-count 1
