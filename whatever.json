@@ -1,4 +1,7 @@
 {
+  "taskDefinition":
+{
+  "family": "whatever",
   "executionRoleArn": "arn:aws:iam::295795367072:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
@@ -100,4 +103,5 @@
   "revision": 2,
   "status": "ACTIVE",
   "volumes": []
+}
 }
