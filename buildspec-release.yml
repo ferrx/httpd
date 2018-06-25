@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Ensure the latest awscli is installed...
+      - sudo pip install --upgrade awscli
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+  build:
+    commands:
+      - echo Build started on `date`
+      - docker build -t my-app .
+      - docker tag my-app:latest 766884914534.dkr.ecr.ca-central-1.amazonaws.com/my-app:latest
+      - docker push 766884914534.dkr.ecr.ca-central-1.amazonaws.com/my-app:latest      
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Restart the ECS Task to get the newly created image
+      - aws ecs update-service --cluster "app-cluster" --service "s1" --desired-count 0
+      - sleep 30s
+      - aws ecs update-service --cluster "app-cluster" --service "s1" --desired-count 1
