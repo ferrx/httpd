@@ -1,6 +1,5 @@
 {
-  "taskDefinition":
-  {
+  "taskDefinition": {
     "executionRoleArn": "arn:aws:iam::295795367072:role/ecsTaskExecutionRole",
     "containerDefinitions": [
       {
